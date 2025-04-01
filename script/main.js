@@ -19,10 +19,21 @@ const fetchData = () => {
         // Run amimation if so
         if ( dataArr.length === dataArr.indexOf(customData) + 1 ) {
           animationTimeline();
-        } 
+        }
       });
     });
 };
+
+// Add after fetchData();
+document.querySelectorAll('.baloons img').forEach(balloon => {
+  balloon.addEventListener('mouseover', () => {
+    balloon.style.transform = `scale(1.2) rotate(${Math.random() * 30 - 15}deg)`;
+    balloon.style.transition = 'transform 0.3s ease';
+  });
+  balloon.addEventListener('mouseout', () => {
+    balloon.style.transform = 'scale(1) rotate(0deg)';
+  });
+});
 
 // Animation Timeline
 const animationTimeline = () => {
